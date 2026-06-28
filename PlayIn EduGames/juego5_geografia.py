@@ -137,5 +137,18 @@ def jugar_geografia():
             except FileNotFoundError:
                 print("\n[!] Aún no hay puntajes registrados.")
             
-            
+         # Función principal del juego de geografía    
+         def jugar_geografia():
+            """Función principal que integra la lógica del juego ."""
+            crear_ranking_si_no_existe()
+        
+        
+        print("\n" + "*"*45)
+        print("  BIENVENIDO AL DESAFÍO GEOGRÁFICO 2026  ")
+        print("*"*45)
+        
+        
+        # Nombre del jugador para el ranking, con validación de entrada
+        nombre = input("Ingresá tu nombre para el ranking: ").strip()
+        if not nombre: nombre = "Jugador Anónimo"
             

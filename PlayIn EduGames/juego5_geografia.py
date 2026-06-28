@@ -101,4 +101,41 @@ def jugar_geografia():
                 archivo.close()
             except Exception as error: # Si ocurre un error al grabar, lo mostramos en pantalla
                 print("Error al grabar:", error)
-        
+# Función para mostrar el top 10 del ranking, ordenando los puntajes de mayor a menor
+        def mostrar_top_10():
+            """Lee, ordena por burbuja y muestra los mejores puntajes."""
+            ranking = []
+            try:
+                archivo = open(NOMBRE_ARCHIVO, "r", encoding="utf-8")
+                lineas = archivo.readlines() # Hace que leamos de a líneas, lo que nos permite procesar cada línea del archivo mejor
+                archivo.close()
+
+                # Procesamos los datos saltando el encabezado
+                for i in range(1, len(lineas)):
+                    datos = lineas[i].strip().split(";")
+                    if len(datos) == 2:
+                        # Corregido: Nombre es datos y Puntos es datos
+                        ranking.append({"Nombre": datos[0], "Puntos": int(datos[1])})
+
+                # Algoritmo de Burbuja: Ordenamos de Mayor a Menor [9]
+                n = len(ranking)
+                for i in range(n - 1):
+                    for j in range(n - 1 - i):
+                        if ranking[j]["Puntos"] < ranking[j+1]["Puntos"]:
+                            # Intercambio de diccionarios
+                            aux = ranking[j]
+                            ranking[j] = ranking[j+1]
+                            ranking[j+1] = aux
+
+                print("\n" + "="*35)
+                print("🏆 TOP 10 RANKING MUNDIALISTA 🏆")
+                print("="*35)
+                for k in range(min(10, len(ranking))):
+                    print(f"{k+1}. {ranking[k]['Nombre']} - {ranking[k]['Puntos']} aciertos")
+                print("="*35)
+
+            except FileNotFoundError:
+                print("\n[!] Aún no hay puntajes registrados.")
+            
+            
+            

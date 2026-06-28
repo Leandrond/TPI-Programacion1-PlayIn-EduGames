@@ -5,6 +5,7 @@ def main():
     #5. Importacion de juegos 
     #Esto permite una mejor comprension del codigo y una mejor organizacion de los archivos
     import juego5_geografia  # Esto conecta main.py con juego5_geografia.py
+    import juego4_Simon  # Esto conecta main.py con juego4_Simon.py
 
     opcion = ""
     
@@ -41,7 +42,7 @@ def main():
             
         elif opcion == "4":
             print("\n--- Entrando al Juego 4 ---")
-            # juego_historia()
+            juego4_Simon.jugar_simon()
             input("Presiona Enter para volver al menú...")
             
         elif opcion == "5":

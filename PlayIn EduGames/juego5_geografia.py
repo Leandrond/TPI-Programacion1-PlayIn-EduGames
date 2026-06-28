@@ -88,4 +88,17 @@ def jugar_geografia():
             archivo = open(NOMBRE_ARCHIVO, "x", encoding="utf-8")
             archivo.write(ENCABEZADO + "\n")
             archivo.close()
-            
+        except FileExistsError:   #Si el archivo ya existe, no hacemos nada 
+            pass
+        
+        # Función para grabar el puntaje del jugador en el archivo CSV
+        def grabar_puntaje_nuevo(nombre, puntos):
+            """Graba los datos usando el separador punto y coma."""
+            try:
+                archivo = open(NOMBRE_ARCHIVO, "a", encoding="utf-8") # encoding para evitar problemas con acentos, lo que hace es que Python entienda que el archivo es UTF-8 y pueda manejar caracteres especiales
+                linea = f"{nombre};{puntos}" # Ahora Python entiende que esto es parte de la función
+                archivo.write(linea + "\n")
+                archivo.close()
+            except Exception as error: # Si ocurre un error al grabar, lo mostramos en pantalla
+                print("Error al grabar:", error)
+        

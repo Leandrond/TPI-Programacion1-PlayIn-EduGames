@@ -1,12 +1,10 @@
-#En este archivo creamos un meno para poden ingresar a los demas juego e ir navegando 
 def main():
-    # Aquí irá el código del menú principal
-     
+    # 1. Inicialización el menu con una funcion
+    
     opcion = ""
     
-    # 2. Estructura Repetitiva: El bucle principal
+    # 2. Bucle principal del menú
     while opcion != "0":
-        # Mostramos el menú con un formato claro (valorado en el punto 7 del TPI)
         print("\n" + "*" * 50)
         print("          BIENVENIDOS A PLAY.IN EDUGAMES          ")
         print("*" * 50)
@@ -19,25 +17,40 @@ def main():
         print("*" * 50)
         
         opcion = input("Ingresa tu opción: ")
-    
-    # if para cada opción, llamamos a la función correspondiente del juego
-    if opcion == "1":
-        print("Entrando al juego 1...")
-        # Aquí llamarías a la función de ese juego
-    elif opcion == "2":
-        print("Entrando al juego 2...")
-        # Aquí llamarías a la función de ese juego
-    elif opcion == "3":
-        print("Entrando al juego 3...")
-        # Aquí llamarías a la función de ese juego
-    elif opcion == "4":
-        print("Entrando al juego 4...")
-        # Aquí llamarías a la función de ese juego
-    elif opcion == "5":
-        print("Entrando al juego 5...")
-        # Aquí llamarías a la función de ese juego
-    elif opcion == "0":
-        print("Saliendo del sistema...")
-    else:
-        print("Opción no válida, intentá de nuevo.") # Para evitar errores, si el usuario ingresa una opción no válida, se le pedirá que intente de nuevo. 
-
+        
+        # 3. Seleccion de juegos 
+        if opcion == "1":
+            print("\n--- Entrando al Juego 1 ---")
+            # juego_lengua() # Llamamos a la función del juego
+            input("Presiona Enter para volver al menú...")
+            
+        elif opcion == "2":
+            print("\n--- Entrando al Juego 2 ---")
+            # juego_matematica()
+            input("Presiona Enter para volver al menú...")
+            
+        elif opcion == "3":
+            print("\n--- Entrando al Juego 3 ---")
+            # juego_ciencias()
+            input("Presiona Enter para volver al menú...")
+            
+        elif opcion == "4":
+            print("\n--- Entrando al Juego 4 ---")
+            # juego_historia()
+            input("Presiona Enter para volver al menú...")
+            
+        elif opcion == "5":
+            print("\n--- Entrando al Juego 5 ---")
+            # juego_geografia()
+            input("Presiona Enter para volver al menú...")
+            
+        elif opcion == "0":
+            print("\nSaliendo del sistema... ¡Gracias por jugar!")
+            
+        else:
+            # 4. Validación de entradas no válidas
+            print("\n[!] Opción no válida. Por favor, ingresa un número del 0 a 5.")
+                  
+# entrada principal del programa
+if __name__ == "__main__": # Verifica si el script se está ejecutando directamente
+    main()

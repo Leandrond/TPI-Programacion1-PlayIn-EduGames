@@ -81,3 +81,11 @@ def jugar_geografia():
             "Nueva Zelanda": "Oceanía"
         }
         
+        # Funcion para crear el archivo de ranking si no existe, asegurando la persistencia de datos
+        def crear_ranking_si_no_existe():
+            """Asegura la persistencia creando el archivo CSV [6, 7]."""
+        try:
+            archivo = open(NOMBRE_ARCHIVO, "x", encoding="utf-8")
+            archivo.write(ENCABEZADO + "\n")
+            archivo.close()
+            

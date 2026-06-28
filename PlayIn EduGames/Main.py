@@ -1,6 +1,11 @@
 def main():
     # 1. Inicialización el menu con una funcion
-    
+
+        
+    #5. Importacion de juegos 
+    #Esto permite una mejor comprension del codigo y una mejor organizacion de los archivos
+    import juego5_geografia  # Esto conecta main.py con juego5_geografia.py
+
     opcion = ""
     
     # 2. Bucle principal del menú
@@ -41,7 +46,7 @@ def main():
             
         elif opcion == "5":
             print("\n--- Entrando al Juego 5 ---")
-            # juego_geografia()
+            juego5_geografia.jugar_geografia() 
             input("Presiona Enter para volver al menú...")
             
         elif opcion == "0":

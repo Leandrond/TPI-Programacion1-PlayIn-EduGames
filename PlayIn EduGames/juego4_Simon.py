@@ -9,7 +9,7 @@ def limpiar_pantalla():
 # 2. guardar el puntaje de cada juagador
 def guardar_puntaje(nombre, ronda):
     # "a" abre el archivo para agregar texto sin borrar lo anterior
-    with open("ranking.txt", "a") as archivo:
+    with open("rankingSimon.txt", "a") as archivo:
         archivo.write(f"{nombre} - Ronda: {ronda}\n")
     print("¡Puntaje guardado con éxito!")
 
@@ -18,13 +18,14 @@ def ver_ranking():
     limpiar_pantalla()
     print("=== TABLA DE POSICIONES ===")
     try:
-        with open("ranking.txt", "r") as archivo:
+        with open("rankingSimon.txt", "r") as archivo:
             contenido = archivo.read()
             if contenido == "":
-                print("Aún no hay puntajes registrados.")
+                print("Aún no se han registrado puntajes.")
             else:
                 print(contenido)
     except FileNotFoundError:
-        print("Aún no hay puntajes registrados.")
+        print("Aún no se han registrado puntajes.")
     
     input("\nPresiona Enter para volver al menú...")
+

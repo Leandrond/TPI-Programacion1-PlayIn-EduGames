@@ -151,4 +151,35 @@ def jugar_geografia():
         # Nombre del jugador para el ranking, con validación de entrada
         nombre = input("Ingresá tu nombre para el ranking: ").strip()
         if not nombre: nombre = "Jugador Anónimo"
-            
+        
+        # Acentos y mayúsculas no afectarán la comparación de respuestas, gracias a la función limpiar_texto()
+        aciertos = 0
+        paises = list(paises_mundial.keys())
+        random.shuffle(paises) # Mezclamos para que cada partida sea distinta
+        
+        
+        # Función para limpiar y normalizar el texto ingresado por el usuario
+        def limpiar_texto(texto):
+            """Normaliza, quita acentos y pasa a minúsculas."""
+            # 1. Normalizamos (separa la letra del acento)
+            texto_descompuesto = unicodedata.normalize('NFD', texto)
+            # 2. Filtramos: mantenemos solo los caracteres que NO sean acentos (categoría 'Mn')
+            texto_sin_acentos = "".join(c for c in texto_descompuesto if unicodedata.category(c) != 'Mn')
+            # 3. Pasamos a minúsculas y quitamos espacios extra para máxima robustez 
+            return texto_sin_acentos.strip().lower()
+
+        # Bucle de preguntas: el jugador debe adivinar el continente de cada país
+        for pais in paises:
+            print(f"\nPaís: {pais}")
+            continente_usuario = input("¿A qué continente pertenece? ")
+            continente_correcto = paises_mundial[pais]
+
+            # COMPARA USANDO LA FUNCIÓN DE LIMPIEZA
+            if limpiar_texto(continente_usuario) == limpiar_texto(continente_correcto):
+                aciertos += 1
+                print(f"✅ ¡Correcto! Llevás {aciertos} aciertos.")
+            else:
+                print(f"❌ ¡Incorrecto! {pais} pertenece a {paises_mundial[pais]}.")
+                break
+        # Grabamos el puntaje del jugador en el ranking
+        grabar_puntaje_nuevo(nombre, aciertos)   

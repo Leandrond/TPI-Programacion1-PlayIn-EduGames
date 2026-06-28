@@ -183,3 +183,15 @@ def jugar_geografia():
                 break
         # Grabamos el puntaje del jugador en el ranking
         grabar_puntaje_nuevo(nombre, aciertos)   
+         # Mostrar el ranking actualizado
+        mostrar_top_10()
+        #preguntamos si quiere volver a jugar o salir
+        jugar = input("\n¿Querés volver a jugar? (s/n): ").strip().lower()
+        if jugar != "s":
+            print("\n¡Gracias por jugar! ¡Hasta la próxima!")
+            break
+        else:
+            print("\n¡Genial! Reiniciando el juego...\n")
+            jugar = 0  # Reiniciamos la variable para continuar el bucle
+            
+            

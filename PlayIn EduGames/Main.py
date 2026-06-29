@@ -6,7 +6,7 @@ def main():
     #Esto permite una mejor comprension del codigo y una mejor organizacion de los archivos
     import juego5_geografia  # Esto conecta main.py con juego5_geografia.py
     import juego4_Simon  # Esto conecta main.py con juego4_Simon.py
-
+    import juego3_adivinanza.py    # Esto conecta main.py con juego3_adivinanza.py
     opcion = ""
     
     # 2. Bucle principal del menú
@@ -15,8 +15,8 @@ def main():
         print("          BIENVENIDOS A PLAY.IN EDUGAMES          ")
         print("*" * 50)
         print("1 - Juego de Lengua")
-        print("2 - Juego de Matemática")
-        print("3 - Juego de Ciencias")
+        print("2 - Juego de Ciencias")
+        print("3 - Juego de Matematica")
         print("4 - Juego de Historia")
         print("5 - Juego de Geografía")
         print("0 - Salir")
@@ -37,7 +37,7 @@ def main():
             
         elif opcion == "3":
             print("\n--- Entrando al Juego 3 ---")
-            # juego_ciencias()
+            juego3_adivinanza.juego_matematicas()
             input("Presiona Enter para volver al menú...")
             
         elif opcion == "4":
